@@ -6,7 +6,7 @@
 /*   By: qxia <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 11:52:08 by qxia              #+#    #+#             */
-/*   Updated: 2022/04/05 14:31:08 by qxia             ###   ########.fr       */
+/*   Updated: 2022/04/05 16:16:32 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ int main(int ac, char **av)
 		i ++;
 	}
 	fs = fscanf(fd, "%c %f %f %f %c\n", &type, &cx, &cy, &cr, &cc);
-	if (fs != -1 && fs != 5)
-		return (file_error());
-	if (fs != -1 && ((type != 'C' && type != 'c') || cr <= 0))
+	if (fs != -1 && (fs != 5 || (type != 'C' && type != 'c') || cr <= 0))
 		return (file_error());
 	while (fs != -1)
 	{
@@ -84,9 +82,7 @@ int main(int ac, char **av)
 			i ++;
 		}
 		fs = fscanf(fd, "%c %f %f %f %c\n", &type, &cx, &cy, &cr, &cc);
-		if (fs != -1 && fs != 5)
-			return (file_error());
-		if (fs != -1 && ((type != 'C' && type != 'c') || cr <= 0))
+		if (fs != -1 && (fs != 5 || (type != 'C' && type != 'c') || cr <= 0))
 			return (file_error());
 	}
 	i = 0;
